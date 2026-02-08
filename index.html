@@ -3,27 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AuthMePremium — Automatic Premium Login</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Link CSS using recommended folder structure -->
+  <title>AuthMePremium — Automatic Premium Login for Minecraft Servers</title>
+  <meta name="description" content="AuthMePremium automatically authenticates premium Minecraft accounts on proxy setups (BungeeCord, Velocity). Works with FlameCord and VeloFlame; Floodgate (Bedrock) supported.">
+  <meta name="keywords" content="AuthMePremium, Minecraft plugin, premium login, BungeeCord, Velocity, FlameCord, VeloFlame, Floodgate">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AuthMePremium — Automatic Premium Login for Minecraft Servers">
+  <meta property="og:description" content="Auto-authenticate premium Minecraft accounts via AuthMe on BungeeCord and Velocity proxies. Floodgate (Bedrock) supported.">
+  <meta property="og:image" content="https://YOUR_GITHUB_USERNAME.github.io/authmepremium/images/og-image.png">
+  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/authmepremium/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AuthMePremium — Automatic Premium Login">
+  <meta name="twitter:description" content="Auto-authenticate premium Minecraft accounts via AuthMe. Compatible with FlameCord & VeloFlame.">
+  <meta name="twitter:image" content="https://YOUR_GITHUB_USERNAME.github.io/authmepremium/images/og-image.png">
+
+  <!-- Canonical (replace with your site URL) -->
+  <link rel="canonical" href="https://YOUR_GITHUB_USERNAME.github.io/authmepremium/">
+
+  <!-- Structured data (JSON-LD) for SoftwareApplication rich result -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AuthMePremium",
+    "operatingSystem": "Minecraft 1.21+",
+    "applicationCategory": "GameServerPlugin",
+    "url": "https://YOUR_GITHUB_USERNAME.github.io/authmepremium/",
+    "description": "Automatic premium account login for BungeeCord and Velocity proxies. Floodgate support for Bedrock.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Main stylesheet (use the folder structure exactly) -->
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="AuthMePremium — Auto-login premium accounts for BungeeCord & Velocity (FlameCord / VeloFlame)">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="container header-inner">
       <div class="brand">
-        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 4 L56 16 V40 C56 50 48 60 32 60 C16 60 8 50 8 40 V16 Z" fill="#2563EB"></path>
-          <path d="M32 14 L44 22 L32 38 L20 22 Z" fill="#1E3A8A"></path>
-        </svg>
+        <img src="images/logo.svg" alt="AuthMePremium logo" class="logo" width="64" height="64">
         <div class="brand-text">
           <h1>AuthMePremium</h1>
           <p class="tagline">Automatic Premium Account Login for BungeeCord & Velocity</p>
         </div>
       </div>
-      <nav class="cta">
+      <nav class="cta" role="navigation" aria-label="Top actions">
         <a class="btn primary" href="#download">Download</a>
         <a class="btn outline" href="https://flamecord.com" target="_blank" rel="noopener">FlameCord</a>
         <a class="btn outline" href="https://veloflame.com" target="_blank" rel="noopener">VeloFlame</a>
@@ -31,52 +61,53 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero card">
+  <main class="container" role="main">
+    <section class="hero card" aria-labelledby="hero-title">
       <div class="hero-left">
-        <h2>Automatic Premium Login</h2>
-        <p class="lead">Detects official Mojang/Microsoft accounts and signs them in automatically via AuthMe. Works on proxy setups (Bungee/FlameCord, Velocity/VeloFlame).</p>
-        <ul class="features">
-          <li><span class="icon">🔑</span> Auto-detect and auto-authenticate premium accounts</li>
-          <li><span class="icon">🌐</span> Compatible with FlameCord & VeloFlame proxies</li>
-          <li><span class="icon">🎮</span> Floodgate (Bedrock) support for Bedrock clients</li>
-          <li><span class="icon">💾</span> Storage: YAML, MySQL, Memory</li>
+        <h2 id="hero-title">Automatic Premium Login</h2>
+        <p class="lead">Detects Mojang / Microsoft accounts and automatically authenticates them via AuthMe. Designed for proxy deployments (BungeeCord / Velocity) and compatible with FlameCord and VeloFlame.</p>
+        <ul class="features" aria-label="Key features">
+          <li><span class="icon" aria-hidden="true">🔑</span> Auto-detects and auto-authenticates premium players</li>
+          <li><span class="icon" aria-hidden="true">🌐</span> Works with FlameCord & VeloFlame proxy forks</li>
+          <li><span class="icon" aria-hidden="true">🎮</span> Floodgate support for Bedrock clients</li>
+          <li><span class="icon" aria-hidden="true">💾</span> Storage backends: YAML, MySQL, Memory</li>
         </ul>
-        <p class="muted small">Public listing summaries used for compatibility details.</p>
+        <p class="muted small">Public marketplace summaries and community resources inform compatibility and features.</p>
       </div>
 
-      <div class="hero-right demo-card">
-        <div class="user-card" id="userCard">
+      <aside class="hero-right demo-card" aria-labelledby="demo-title">
+        <h3 id="demo-title">Interactive Demo</h3>
+        <div class="user-card" id="userCard" aria-live="polite">
           <div class="user-top">
-            <div class="user-avatar" id="userIcon">👤</div>
+            <img src="images/premium-icon.svg" alt="User avatar icon" class="user-avatar" width="56" height="56">
             <div class="user-info">
               <div class="username" id="username">Player123</div>
-              <div class="status" id="userStatus"><span class="dot dot-red"></span> Cracked</div>
+              <div class="status" id="userStatus"><span class="dot dot-red" aria-hidden="true"></span> Cracked</div>
             </div>
           </div>
 
           <div class="user-actions">
-            <button id="toggleBtn" class="btn toggle red">Make Premium</button>
-            <button id="simulateBtn" class="btn small">Simulate Auto-login</button>
+            <button id="toggleBtn" class="btn toggle red" aria-pressed="false" aria-label="Toggle premium status">Make Premium</button>
+            <button id="simulateBtn" class="btn small" aria-label="Simulate auto-login">Simulate Auto-login</button>
           </div>
 
           <div class="login-flow" id="loginFlow" aria-hidden="true">
             <div class="flow-step">Connecting to proxy...</div>
             <div class="flow-step">Detecting premium account...</div>
             <div class="flow-step">Authenticating with AuthMe...</div>
-            <div class="flow-result" id="flowResult">Result</div>
+            <div class="flow-result" id="flowResult" role="status" aria-live="polite"></div>
           </div>
         </div>
 
-        <div class="note small muted">Demo state is saved locally in your browser (localStorage).</div>
-      </div>
+        <p class="note small muted">Demo state is saved locally in your browser (localStorage). On a real server, commands are executed on the proxy (see Commands section).</p>
+      </aside>
     </section>
 
-    <section id="commands" class="card docs">
-      <h3>Commands & Documentation</h3>
-      <p>The commands are shown below. Note: /premium only enables premium status; use /cracked to revert (split commands implemented in the plugin) [1].</p>
+    <section id="commands" class="card docs" aria-labelledby="commands-title">
+      <h2 id="commands-title">Commands & Documentation</h2>
+      <p>Below are the primary commands. Note: the plugin uses separate commands to enable and disable premium: <code>/premium</code> (enable) and <code>/cracked</code> (disable) — see implementation details and messages in the plugin code [1].</p>
 
-      <div class="cmd-grid">
+      <div class="cmd-grid" role="region" aria-label="Command list">
         <pre class="cmd"><code>/authmepremium setpremium &lt;player&gt; &lt;true|false&gt;  — admin</code></pre>
         <pre class="cmd"><code>/authmepremium check &lt;player&gt;                — admin</code></pre>
         <pre class="cmd"><code>/authmepremium clear &lt;player&gt;                — admin</code></pre>
@@ -85,8 +116,8 @@
         <pre class="cmd"><code>/premiumuuid                                      — player</code></pre>
       </div>
 
-      <h4>Full commands (plain text)</h4>
-      <pre class="full-txt">
+      <h3>Full commands (plain text)</h3>
+      <pre class="full-txt" aria-label="Full command documentation">
 AuthMePremium - Commands & Permissions
 
 /premium
@@ -117,8 +148,8 @@ Notes:
       </pre>
     </section>
 
-    <section id="requirements" class="card">
-      <h3>Requirements & Installation</h3>
+    <section id="requirements" class="card" aria-labelledby="requirements-title">
+      <h2 id="requirements-title">Requirements & Installation</h2>
       <ol>
         <li>Install AuthMeReloaded on your Auth backend server.</li>
         <li>Install AuthMe (proxy edition) on the proxy (Bungee/Velocity).</li>
@@ -129,22 +160,21 @@ Notes:
         <a class="badge" href="https://flamecord.com" target="_blank" rel="noopener">FlameCord</a>
         <a class="badge" href="https://veloflame.com" target="_blank" rel="noopener">VeloFlame</a>
       </div>
-      <p class="muted small">Commands / behavior follow the plugin changes (split /premium and /cracked) implemented in the plugin code and messages [1].</p>
+      <p class="muted small">Commands & behavior match the plugin changes (split <code>/premium</code> and <code>/cracked</code>) implemented in code [1].</p>
     </section>
 
-    <section id="download" class="card">
-      <h3>Download & Marketplace</h3>
-      <p>Download from the marketplace listing or your vendor. Make sure your proxy (FlameCord / VeloFlame) version matches the plugin requirements.</p>
-      <a class="btn primary" href="https://builtbybit.com/resources/authme-premium-geyser-java.44493/" role="button">Download (marketplace)</a>
+    <section id="download" class="card" aria-labelledby="download-title">
+      <h2 id="download-title">Download & Marketplace</h2>
+      <p>Download the plugin from your marketplace listing or vendor. Verify the proxy version (FlameCord / VeloFlame) and the plugin version compatibility before installing.</p>
+      <a class="btn primary" href="https://BUILTBYBIT_OR_YOUR_MARKETPLACE_LINK" role="button">Download (marketplace)</a>
     </section>
 
-    <footer class="card footer">
+    <footer class="card footer" role="contentinfo">
       <div>© AuthMePremium — Demo • Ready for GitHub Pages</div>
-      <div class="small muted">Designed for a clean GitHub Pages deployment</div>
+      <div class="small muted">Replace placeholder URLs and images with your real assets before publishing.</div>
     </footer>
   </main>
 
-  <!-- Link JS using recommended folder structure -->
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
