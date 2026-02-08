@@ -1,0 +1,27 @@
+AuthMePremium - Commands & Permissions
+
+/premium
+  Permission: authmepremium.premium
+  Aliases: /prem
+  Description: Enables premium mode for your account. Use /cracked to revert.
+
+ /cracked
+  Permission: authmepremium.cracked
+  Aliases: /crack
+  Description: Disables premium mode for your account.
+
+ /authmepremium setpremium <player> [true/false]
+  Permission: authmepremium.admin
+  Description: Admin command to set premium for a player.
+
+ /authmepremium check <player>
+  Permission: authmepremium.admin
+  Description: Check if a player is premium.
+
+ /authmepremium clear <player>
+  Permission: authmepremium.admin
+  Description: Clear premium status for a player.
+
+Notes:
+- Auto-login integrates with AuthMe and Floodgate for Bedrock; ensure AuthMeReloaded is installed on backend.
+- Proxy frameworks supported: FlameCord (FlameCord) and VeloFlame (Velocity) — see https://flamecord.com and https://veloflame.com for downloads.
