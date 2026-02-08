@@ -1,13 +1,13 @@
 <!doctype html>
-<!-- Página principal AuthMePremium demo + documentación -->
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AuthMePremium — Automatic Premium Login</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <!-- Link CSS using recommended folder structure -->
+  <link rel="stylesheet" href="css/style.css">
   <meta name="description" content="AuthMePremium — Auto-login premium accounts for BungeeCord & Velocity (FlameCord / VeloFlame)">
 </head>
 <body>
@@ -15,10 +15,8 @@
     <div class="container header-inner">
       <div class="brand">
         <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-          <defs></defs>
           <path d="M32 4 L56 16 V40 C56 50 48 60 32 60 C16 60 8 50 8 40 V16 Z" fill="#2563EB"></path>
           <path d="M32 14 L44 22 L32 38 L20 22 Z" fill="#1E3A8A"></path>
-          <text x="50%" y="86%" text-anchor="middle" font-family="Montserrat" font-size="8" fill="#ffffff">AMP</text>
         </svg>
         <div class="brand-text">
           <h1>AuthMePremium</h1>
@@ -27,8 +25,8 @@
       </div>
       <nav class="cta">
         <a class="btn primary" href="#download">Download</a>
-        <a class="btn outline" href="https://flamecord.com" target="_blank" rel="noopener">Get FlameCord</a>
-        <a class="btn outline" href="https://veloflame.com" target="_blank" rel="noopener">Get VeloFlame</a>
+        <a class="btn outline" href="https://flamecord.com" target="_blank" rel="noopener">FlameCord</a>
+        <a class="btn outline" href="https://veloflame.com" target="_blank" rel="noopener">VeloFlame</a>
       </nav>
     </div>
   </header>
@@ -37,14 +35,14 @@
     <section class="hero card">
       <div class="hero-left">
         <h2>Automatic Premium Login</h2>
-        <p class="lead">Detecta cuentas oficiales y las autentica automáticamente, integrando con AuthMe y Floodgate (Bedrock) para una experiencia sin fricción.</p>
+        <p class="lead">Detects official Mojang/Microsoft accounts and signs them in automatically via AuthMe. Works on proxy setups (Bungee/FlameCord, Velocity/VeloFlame).</p>
         <ul class="features">
-          <li><span class="icon">🔑</span> Auto‑login para cuentas premium</li>
-          <li><span class="icon">🌐</span> Compatible con FlameCord / VeloFlame (Bungee/Velocity)</li>
-          <li><span class="icon">🎮</span> Floodgate (Bedrock) support</li>
-          <li><span class="icon">💾</span> YAML / MySQL / Memory</li>
+          <li><span class="icon">🔑</span> Auto-detect and auto-authenticate premium accounts</li>
+          <li><span class="icon">🌐</span> Compatible with FlameCord & VeloFlame proxies</li>
+          <li><span class="icon">🎮</span> Floodgate (Bedrock) support for Bedrock clients</li>
+          <li><span class="icon">💾</span> Storage: YAML, MySQL, Memory</li>
         </ul>
-        <p class="muted small">Información pública y compatibilidades: listados de marketplace y recursos comunitarios [1][2].</p>
+        <p class="muted small">Public listing summaries used for compatibility details.</p>
       </div>
 
       <div class="hero-right demo-card">
@@ -70,13 +68,13 @@
           </div>
         </div>
 
-        <div class="note small muted">Demo local: el estado se guarda en tu navegador (localStorage).</div>
+        <div class="note small muted">Demo state is saved locally in your browser (localStorage).</div>
       </div>
     </section>
 
     <section id="commands" class="card docs">
       <h3>Commands & Documentation</h3>
-      <p>Listado de comandos principales y permisos. Puedes descargar el archivo <a id="downloadCommands" href="#" download="PLUGIN_COMMANDS.txt">PLUGIN_COMMANDS.txt</a>.</p>
+      <p>The commands are shown below. Note: /premium only enables premium status; use /cracked to revert (split commands implemented in the plugin) [1].</p>
 
       <div class="cmd-grid">
         <pre class="cmd"><code>/authmepremium setpremium &lt;player&gt; &lt;true|false&gt;  — admin</code></pre>
@@ -87,40 +85,66 @@
         <pre class="cmd"><code>/premiumuuid                                      — player</code></pre>
       </div>
 
-      <h4>Notes</h4>
-      <ul>
-        <li>El comando <strong>/premium</strong> habilita premium para el jugador; usa <strong>/cracked</strong> para revertir.</li>
-        <li>Auto‑login respeta la configuración de <code>auto-premium</code> y puede consultarse la base de AuthMe para evitar falsos positivos (hook MySQL).</li>
-      </ul>
+      <h4>Full commands (plain text)</h4>
+      <pre class="full-txt">
+AuthMePremium - Commands & Permissions
+
+/premium
+  Permission: authmepremium.premium
+  Aliases: /prem
+  Description: Enables premium mode for your account. Use /cracked to revert.
+
+ /cracked
+  Permission: authmepremium.cracked
+  Aliases: /crack
+  Description: Disables premium mode for your account.
+
+ /authmepremium setpremium &lt;player&gt; [true/false]
+  Permission: authmepremium.admin
+  Description: Admin command to set premium for a player.
+
+ /authmepremium check &lt;player&gt;
+  Permission: authmepremium.admin
+  Description: Check if a player is premium.
+
+ /authmepremium clear &lt;player&gt;
+  Permission: authmepremium.admin
+  Description: Clear premium status for a player.
+
+Notes:
+- Auto-login integrates with AuthMe and Floodgate for Bedrock; ensure AuthMeReloaded is installed on backend.
+- Proxy frameworks supported: FlameCord and VeloFlame — see their sites for downloads.
+      </pre>
     </section>
 
     <section id="requirements" class="card">
-      <h3>Requisitos & Instalación</h3>
+      <h3>Requirements & Installation</h3>
       <ol>
-        <li>Instala <strong>AuthMeReloaded</strong> en tu servidor Auth (backend).</li>
-        <li>Instala AuthMe Bungee / AuthMe Velocity en tu proxy.</li>
-        <li>Coloca <strong>AuthMePremium</strong> en el proxy y configura <code>config.yml</code>.</li>
-        <li>Si usas Bedrock, habilita Floodgate en el proxy para auto‑login Bedrock.</li>
+        <li>Install AuthMeReloaded on your Auth backend server.</li>
+        <li>Install AuthMe (proxy edition) on the proxy (Bungee/Velocity).</li>
+        <li>Place AuthMePremium on the proxy and configure <code>config.yml</code>.</li>
+        <li>If using Bedrock, enable Floodgate on the proxy to allow Bedrock auto-login.</li>
       </ol>
       <div class="badges">
         <a class="badge" href="https://flamecord.com" target="_blank" rel="noopener">FlameCord</a>
         <a class="badge" href="https://veloflame.com" target="_blank" rel="noopener">VeloFlame</a>
       </div>
-      <p class="muted small">Fuentes públicas y marketplace (resumen): información y descripciones públicas sobre AuthMePremium y su uso en proxies [1][2].</p>
+      <p class="muted small">Commands / behavior follow the plugin changes (split /premium and /cracked) implemented in the plugin code and messages [1].</p>
     </section>
 
     <section id="download" class="card">
       <h3>Download & Marketplace</h3>
-      <p>Descarga en el marketplace o desde tu proveedor. Para proxies FlameCord / VeloFlame verifica compatibilidad y versiones.</p>
+      <p>Download from the marketplace listing or your vendor. Make sure your proxy (FlameCord / VeloFlame) version matches the plugin requirements.</p>
       <a class="btn primary" href="#" role="button">Download (marketplace)</a>
     </section>
 
     <footer class="card footer">
-      <div>© AuthMePremium — Demo • Designed for GitHub Pages</div>
-      <div class="small muted">Developed / Packaged by plugin author (marketplace listings) — referencias públicas [1][2]</div>
+      <div>© AuthMePremium — Demo • Ready for GitHub Pages</div>
+      <div class="small muted">Designed for a clean GitHub Pages deployment</div>
     </footer>
   </main>
 
-  <script src="script.js" defer></script>
+  <!-- Link JS using recommended folder structure -->
+  <script src="js/script.js"></script>
 </body>
 </html>
